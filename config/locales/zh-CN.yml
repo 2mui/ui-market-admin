@@ -1,0 +1,64 @@
+'zh-CN':
+  common: &commons
+    id: 编号
+    name: 名称
+    description: 描述
+    created_at: 创建于
+    updated_at: 更新于
+    title: 名称
+    image: 图片
+    url: 链接
+    position: 排序
+  activerecord:
+    models:
+      item: '资源'
+      browse_history: 浏览记录
+      download_history: 下载记录
+      like: 收藏记录
+      user: 用户
+      category: 资源分类
+      industry: 行业
+      link: 友情链接
+      partner: 合作伙伴
+    attributes:
+      browse_history:
+        <<: *commons
+        user: 用户
+        item: 资源
+      download_history:
+        <<: *commons
+        user: 用户
+        item: 资源
+      like:
+        <<: *commons
+        user: 用户
+        item: 资源
+      link:
+        <<: *commons
+      partner:
+        <<: *commons
+      category:
+        <<: *commons
+      industry:
+        <<: *commons
+      item:
+        <<: *commons
+        title: 名称
+        description: 描述
+        category: 分类
+        cover: 封面
+        detail: 详情图
+        url: 下载地址
+        author: 作者
+        industry: 行业
+        featured: 推荐
+        draft: 草稿
+        filesize: 文件大小
+        category_id: 分类
+        industry_id: 行业
+        likes_count: 喜欢数
+        downloads_count: 下载次数
+    helpers:
+      label:
+        item:
+          title: 名称

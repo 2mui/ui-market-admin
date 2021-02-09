@@ -6,6 +6,17 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+tencent:
+  service: TencentCOS
+  secret_id: AKIDHJApFSTWO0LRL6Ds77tPgU6RWzDG5d4V
+  secret_key: TC3g8NPEuKls76qLbuy7B0bx1oNxFG0Y
+  app_id: 1302797667
+  bucket: 2mui-1302797667
+  region: ap-guangzhou # https://cloud.tencent.com/document/product/436/6224
+  prefix: /folder # prefix save path
+  endpoint: https://2mui-1302797667.cos.ap-guangzhou.myqcloud.com # your cdn url
+  max_age: 3600 # http cache time
+
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3

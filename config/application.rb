@@ -12,6 +12,10 @@ module UiMarketAdmin
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # https://guides.rubyonrails.org/i18n.html
+    # https://github.com/svenfuchs/rails-i18n/blob/master/rails/rails5/active_record.yml
+    config.i18n.default_locale = :'zh-CN'
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

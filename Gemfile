@@ -40,6 +40,7 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -51,8 +52,30 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
+
+gem 'administrate', github: 'thoughtbot/administrate'
+
+# https://dreamersoul.github.io/administrate-field-active_storage/
+gem 'administrate-field-active_storage'
+gem 'image_processing'
+# gem 'activestorage-tencent_cos'
+gem 'activestorage-tencent_cos', github: 'df1228/activestorage-tencent_cos'
+# gem 'activestorage-tencent_cos', git: 'https://github.com/df1228/activestorage-tencent_cos.git'
+gem "pundit"
+
+# gem 'multi_json'
+
+# # https://github.com/rswag/rswag
+# gem 'rswag-api'
+# gem 'rswag-ui'
+
+# group :development, :test do
+#   gem 'rspec-rails'
+#   gem 'rswag-specs'
+# end
