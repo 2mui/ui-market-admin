@@ -11,7 +11,7 @@ module Admin
 
     def authenticate_admin
       # TODO Add authentication logic here.
-      redirect_to '/users/sign_in', alert: 'Not authorized.' unless current_user && access_whitelist
+      redirect_to '/', alert: 'Not authorized.' unless current_user && access_whitelist
     end
 
     private

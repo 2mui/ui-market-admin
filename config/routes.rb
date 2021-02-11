@@ -1,6 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  devise_for :users
+  
+  root to: 'home#index'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   # mount Rswag::Ui::Engine => '/api-docs'
   # mount Rswag::Api::Engine => '/api-docs'
   resources :items
@@ -21,11 +26,7 @@ Rails.application.routes.draw do
     #   mount PgHero::Engine, at: "pghero"
     # end
 
-
-  devise_for :users
-  root to: 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  
   namespace :admin do
     resources :partners
     resources :links
