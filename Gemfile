@@ -56,6 +56,7 @@ end
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'omniauth'
+gem 'omniauth-github'
 gem 'omniauth-wechat-oauth2', github: 'yangsr/omniauth-wechat-oauth2'
 
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
