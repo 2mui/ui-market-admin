@@ -67,6 +67,13 @@ gem 'administrate', github: 'thoughtbot/administrate'
 
 # https://dreamersoul.github.io/administrate-field-active_storage/
 gem 'administrate-field-active_storage'
+# gem 'administrate-field-jsonb', github: 'codica2/administrate-field-jsonb'
+# gem 'administrate-field-jsonb', github: 'kayhide/administrate-field-jsonb'
+# gem 'administrate-field-tag', github: 'herregroen/administrate-field-tag'
+# gem 'administrate-field-enum'
+# gem 'administrate-field-collection_select', github: 'headwayio/administrate-field-collection_select', branch: 'feature/rails-6'
+
+# gem 'administrate-field-jsonb'
 gem 'image_processing'
 # gem 'activestorage-tencent_cos'
 gem 'activestorage-tencent_cos', github: 'df1228/activestorage-tencent_cos'

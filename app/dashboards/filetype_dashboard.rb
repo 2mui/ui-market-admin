@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ItemDashboard < Administrate::BaseDashboard
+class FiletypeDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,33 +9,9 @@ class ItemDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    title: Field::String,
-    description: Field::String,
-    cover: Field::ActiveStorage,
-    detail: Field::ActiveStorage,
-    url: Field::ActiveStorage,
-    author: Field::String,
-    featured: Field::Boolean,
-    draft: Field::Boolean,
+    ext: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    likes_count: Field::Number,
-    downloads_count: Field::Number,
-    filesize: Field::String,
-    # filetype: Field::String,
-    filetype: ArrayField, 
-    # category_id: Field::Number,
-    # category_id: Field::Select.with_options(collection: [
-    #     ["网页", 1],
-    #     ["APP", 2],
-    #     ["Banner", 3],
-    #     ["插画", 4],
-    #     ["图标", 5],
-    #     ["动画", 6],
-    #     ["3D", 7]
-    # ]),
-    category_id: Field::Select.with_options(collection: Category.all.map {|x| [x.name, x.id] }),
-    industry_id: Field::Select.with_options(collection: Industry.all.map {|x| [x.name, x.id] }),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -45,27 +21,16 @@ class ItemDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    title
-    draft
+    ext
     created_at
+    updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    title
-    description
-    cover
-    detail
-    url
-    author
-    filesize
-    filetype
-    category_id
-    industry_id
-    featured
-    draft
+    ext
     created_at
     updated_at
   ].freeze
@@ -73,21 +38,8 @@ class ItemDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  # likes_count
-  # downloads_count
-  # filesize
   FORM_ATTRIBUTES = %i[
-    title
-    description
-    cover
-    detail
-    url
-    author
-    filetype
-    category_id
-    industry_id
-    featured
-    draft
+    ext
   ].freeze
 
   # COLLECTION_FILTERS
@@ -102,15 +54,10 @@ class ItemDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how items are displayed
+  # Overwrite this method to customize how filetypes are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(item)
-  #   "Item ##{item.id}"
+  # def display_resource(filetype)
+  #   "Filetype ##{filetype.id}"
   # end
-
-  # def permitted_attributes
-  #   super + [:filetype]
-  # end
-
 end

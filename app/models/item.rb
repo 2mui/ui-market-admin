@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   validates :title, presence: true
   after_create :fix_image_urls
 
+  # FILETYPES = ["PSD", "XD", "AI", "Sketch"]
+
   # Item.last.update_column(:cover, Item.last.cover.service_url)
   def fix_image_urls
     # https://stackoverflow.com/questions/51110789/activestorage-service-url-rails-blob-path-cannot-generate-full-url-when-not-u

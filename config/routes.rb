@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :partners
     resources :links
     resources :categories
+    resources :filetypes
     resources :industries
     resources :items
     resources :users

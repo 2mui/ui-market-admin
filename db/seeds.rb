@@ -22,6 +22,12 @@ end
   })
 end
 
+%w[PSD AI XD Sketch].each do |x|
+  Filetype.create({
+    ext: x
+  })
+end
+
 require 'uri'
 
 # item.cover.service_url

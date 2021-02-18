@@ -20,6 +20,7 @@
       industry: 行业
       link: 友情链接
       partner: 合作伙伴
+      filetype: 资源格式
     attributes:
       browse_history:
         <<: *commons
@@ -39,6 +40,9 @@
         <<: *commons
       category:
         <<: *commons
+      filetype:
+        <<: *commons
+        ext: 文件格式
       industry:
         <<: *commons
       item:
@@ -54,6 +58,7 @@
         featured: 推荐
         draft: 草稿
         filesize: 文件大小
+        filetype: 文件格式
         category_id: 分类
         industry_id: 行业
         likes_count: 喜欢数

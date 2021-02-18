@@ -1,5 +1,5 @@
 module Admin
-  class ItemsController < Admin::ApplicationController
+  class FiletypesController < Admin::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
@@ -42,23 +42,5 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
-
-    # def permitted_attributes
-    #   super << :filetype
-    # end
-
-    # def resource_params
-    #   params.require(resource_class.model_name.param_key).
-    #     permit(dashboard.permitted_attributes << :filetype).
-    #     transform_values { |v| read_param_value(v) }
-    # end
-
-    # https://api.rubyonrails.org/v4.1.8/classes/ActionController/Parameters.html
-    # 必须要 permit(filetype: []).
-    def resource_params
-      params.require(resource_class.model_name.param_key).
-        permit(dashboard.permitted_attributes << {filetype: []}).
-        transform_values { |v| read_param_value(v) }
-    end
   end
 end

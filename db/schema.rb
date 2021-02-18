@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_224330) do
+ActiveRecord::Schema.define(version: 2021_02_18_133232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,12 @@ ActiveRecord::Schema.define(version: 2021_02_11_224330) do
     t.index ["user_id"], name: "index_download_histories_on_user_id"
   end
 
+  create_table "filetypes", force: :cascade do |t|
+    t.string "ext"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "folders", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
@@ -122,6 +128,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_224330) do
     t.boolean "draft", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "filetype"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["industry_id"], name: "index_items_on_industry_id"
   end
