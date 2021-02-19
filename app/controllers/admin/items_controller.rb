@@ -53,6 +53,14 @@ module Admin
     #     transform_values { |v| read_param_value(v) }
     # end
 
+  def default_sorting_attribute
+    :updated_at
+  end
+
+  def default_sorting_direction
+    :desc
+  end
+
     # https://api.rubyonrails.org/v4.1.8/classes/ActionController/Parameters.html
     # 必须要 permit(filetype: []).
     def resource_params
