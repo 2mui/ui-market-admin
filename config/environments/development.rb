@@ -65,7 +65,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.hosts << "admin.2mui.cn" # Whitelist one hostname
-  config.hosts << "3ae95d3fa62b.ngrok.io"
 
   config.default_url_options = { host: "localhost:3000" }
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
