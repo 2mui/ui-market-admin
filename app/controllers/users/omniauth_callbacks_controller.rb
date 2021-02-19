@@ -35,6 +35,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def after_sign_in_path_for(resource)
-    "https://www.2mui.cn/callback" || request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+    "https://www.2mui.cn/" || request.env['omniauth.origin'] || stored_location_for(resource) || root_path
   end
 end
