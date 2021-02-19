@@ -64,6 +64,7 @@ gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 
 gem 'administrate', github: 'thoughtbot/administrate'
+gem 'activestorage-aliyun'
 
 # https://dreamersoul.github.io/administrate-field-active_storage/
 gem 'administrate-field-active_storage'

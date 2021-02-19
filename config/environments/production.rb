@@ -42,7 +42,7 @@ Rails.application.configure do
   
   # https://github.com/YIIZ/activestorage-tencent_cos
   # config.active_storage.service = :tencent
-  config.active_storage.service = :local
+  config.active_storage.service = :aliyun
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -122,5 +122,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.hosts << "admin.2mui.cn" # Whitelist one hostname
+  config.hosts << "assets.2mui.cn" # Whitelist one hostname
+  config.hosts << "auth.2mui.cn" # Whitelist one hostname
   config.default_url_options = { host: "admin.2mui.cn" }
 end

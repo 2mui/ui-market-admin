@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+@import "reset/normalize";
+
+@import "selectize";
+@import "datetime_picker";
+
+@import "library/clearfix";
+@import "library/data-label";
+@import "library/variables";
+
+@import "base/forms";
+@import "base/layout";
+@import "base/lists";
+@import "base/tables";
+@import "base/typography";
+
+@import "components/app-container";
+@import "components/attributes";
+@import "components/buttons";
+@import "components/cells";
+@import "components/field-unit";
+@import "components/flashes";
+@import "components/form-actions";
+@import "components/main-content";
+@import "components/navigation";
+@import "components/pagination";
+@import "components/search";
+
+@import "utilities/text-color";
+
+
+/* direct_uploads.css */
+
+.direct-upload {
+  display: inline-block;
+  position: relative;
+  padding: 2px 4px;
+  margin: 0 3px 3px 0;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.direct-upload--pending {
+  opacity: 0.6;
+}
+
+.direct-upload__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.2;
+  background: #0076ff;
+  transition: width 120ms ease-out, opacity 60ms 60ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+
+.direct-upload--complete .direct-upload__progress {
+  opacity: 0.4;
+}
+
+.direct-upload--error {
+  border-color: red;
+}
+
+input[type=file][data-direct-upload-url][disabled] {
+  display: none;
+}

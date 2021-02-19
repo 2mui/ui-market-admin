@@ -7,12 +7,23 @@ local:
   root: <%= Rails.root.join("storage") %>
   timeout: 0
 
+aliyun:
+  service: Aliyun
+  access_key_id: "LTAI4GC8dnrPZiW9x7sbG7Ck"
+  access_key_secret: "ILTDX75aH6dGB4d81qRcILMAigHdvL"
+  bucket: "ui-market"
+  endpoint: "https://oss-cn-shenzhen.aliyuncs.com"
+  # path prefix, default: /
+  path: "/"
+  # Bucket public: true/false, default: true, for generate public/private URL.
+  public: true
+
 tencent:
   service: TencentCOS
   secret_id: AKIDHJApFSTWO0LRL6Ds77tPgU6RWzDG5d4V
   secret_key: TC3g8NPEuKls76qLbuy7B0bx1oNxFG0Y
   app_id: 1302797667
-  bucket: 2mui-1302797667
+  bucket: 2mui
   region: ap-guangzhou # https://cloud.tencent.com/document/product/436/6224
   prefix: /folder # prefix save path
   endpoint: https://2mui-1302797667.cos.ap-guangzhou.myqcloud.com # your cdn url
