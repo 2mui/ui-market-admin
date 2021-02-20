@@ -38,8 +38,8 @@ class ItemDashboard < Administrate::BaseDashboard
     #     ["动画", 6],
     #     ["3D", 7]
     # ]),
-    category_id: Field::Select.with_options(collection: Category.options_for_select),
-    industry_id: Field::Select.with_options(collection: Industry.options_for_select),
+    category_id: Field::Select.with_options(collection: -> { Category.options_for_select }),
+    industry_id: Field::Select.with_options(collection: -> { Industry.options_for_select }),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
