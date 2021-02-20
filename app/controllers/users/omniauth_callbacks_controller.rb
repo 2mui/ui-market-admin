@@ -21,7 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = AuthProvider.find_for_wechat_oauth(request.env["omniauth.auth"])
     if @user.persisted?
       set_flash_message(:notice, :success, kind: "wechat") if is_navigational_format?
-      cookies[:u] = { value: Digest::MD5.hexdigest(@user.id.to_s), expires: Time.now + 3600, domain: :all}
+      cookies[:u] = { value: @user.id.to_s, expires: Time.now + 3600, domain: :all}
       sign_in_and_redirect @user, :event => :authentication
       # redirect_to 'https://www.2mui.cn/callback' and return
     else

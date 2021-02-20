@@ -11,13 +11,13 @@ class ItemDashboard < Administrate::BaseDashboard
     id: Field::Number,
     title: Field::String,
     description: Field::String,
-    cover: Field::ActiveStorage,
-    detail: Field::ActiveStorage,
-    url: Field::ActiveStorage,
+    # cover: Field::ActiveStorage,
+    # detail: Field::ActiveStorage,
+    # url: Field::ActiveStorage,
 
-    # cover: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
-    # detail: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
-    # url: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
+    cover: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
+    detail: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
+    url: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
     author: Field::String,
     featured: Field::Boolean,
     draft: Field::Boolean,
@@ -38,8 +38,8 @@ class ItemDashboard < Administrate::BaseDashboard
     #     ["动画", 6],
     #     ["3D", 7]
     # ]),
-    category_id: Field::Select.with_options(collection: Category.all.map {|x| [x.name, x.id] }),
-    industry_id: Field::Select.with_options(collection: Industry.all.map {|x| [x.name, x.id] }),
+    category_id: Field::Select.with_options(collection: Category.all, value_method: "id", text_field: "name"}),
+    industry_id: Field::Select.with_options(collection: Industry.all, value_method: "id", text_field: "name"}),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
