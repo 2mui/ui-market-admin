@@ -9,8 +9,8 @@ local:
 
 aliyun:
   service: Aliyun
-  access_key_id: "LTAI4GC8dnrPZiW9x7sbG7Ck"
-  access_key_secret: "ILTDX75aH6dGB4d81qRcILMAigHdvL"
+  access_key_id: <%= ENV["ALIYUN_ACCESS_KEY_ID"] %>
+  access_key_secret: <%= ENV["ALIYUN_ACCESS_KEY_SECRET"] %>
   bucket: "ui-market"
   endpoint: "https://oss-cn-shenzhen.aliyuncs.com"
   # path prefix, default: /
