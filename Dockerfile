@@ -1,16 +1,20 @@
 FROM ruby:3.0.0
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update -qq && apt-get install -y build-essential nodejs yarn imagemagick
+RUN apt-get update -qq && apt-get install --no-install-recommends -y ca-certificates build-essential libpq-dev nodejs yarn imagemagick && \
+  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
+COPY package.json yarn.lock $APP_HOME/
+RUN yarn install
+
 # RUN gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ && gem install bundler:2.2.6
-RUN gem install bundler:2.2.6 && bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+RUN gem install bundler:2.2.11 && bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 ADD Gemfile* $APP_HOME/
 RUN bundle install
 
