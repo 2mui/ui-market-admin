@@ -61,6 +61,7 @@ gem 'omniauth-wechat-oauth2', github: 'yangsr/omniauth-wechat-oauth2'
 
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
+gem "sidekiq-cron", "~> 1.1"
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 
 gem 'administrate', github: 'thoughtbot/administrate'
@@ -77,8 +78,8 @@ gem 'administrate-field-active_storage'
 # gem 'administrate-field-jsonb'
 gem 'image_processing'
 # gem 'activestorage-tencent_cos'
-gem 'activestorage-tencent_cos', github: 'df1228/activestorage-tencent_cos'
-# gem 'activestorage-tencent_cos', git: 'https://github.com/df1228/activestorage-tencent_cos.git'
+# gem 'activestorage-tencent_cos', github: 'df1228/activestorage-tencent_cos'
+
 gem "pundit"
 
 # gem 'multi_json'

@@ -124,4 +124,16 @@ Rails.application.configure do
   config.hosts << ".2mui.cn" # Whitelist one hostname
 
   config.default_url_options = { host: "admin.2mui.cn" }
+
+
+  # https://stackoverflow.com/questions/52340789/can-activestoragepurgejob-be-enqueued-to-other-than-default
+  # https://guides.rubyonrails.org/configuring.html#configuring-active-storage
+  # config.active_storage.queue = :low_priority
+  config.active_storage.logger = ActiveSupport::Logger.new(STDOUT)
+
+  config.active_storage.queues.analysis   = :active_storage_analysis       # defaults to "active_storage_analysis"
+  config.active_storage.queues.purge      = :active_storage_purge       # defaults to "active_storage_purge"
+  config.active_storage.queues.mirror     = :active_storage_mirror       # defaults to "active_storage_mirror"
+  config.active_storage.queues.purge      = :low      # alternatively, put purge jobs in the `low` queue
+
 end

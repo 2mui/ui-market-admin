@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/df1228/activestorage-tencent_cos.git
-  revision: 7f27307ba188f83519c24a4581e8f676a1d4ad3b
-  specs:
-    activestorage-tencent_cos (0.0.2)
-      activestorage (~> 6.0)
-
-GIT
   remote: https://github.com/thoughtbot/administrate.git
   revision: 7eb70fb118947589dc955e84f8671800f8186a9b
   specs:
@@ -131,6 +124,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
+    et-orbi (1.2.4)
+      tzinfo
     faraday (1.3.0)
       faraday-net_http (~> 1.0)
       multipart-post (>= 1.2, < 3)
@@ -139,6 +134,9 @@ GEM
     ffi (1.14.2)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    fugit (1.4.2)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -226,6 +224,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
+    raabro (1.4.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-mini-profiler (2.3.1)
@@ -297,6 +296,9 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sidekiq-cron (1.2.0)
+      fugit (~> 1.1)
+      sidekiq (>= 4.2.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -342,7 +344,6 @@ PLATFORMS
 
 DEPENDENCIES
   activestorage-aliyun
-  activestorage-tencent_cos!
   administrate!
   administrate-field-active_storage
   bootsnap (>= 1.4.4)
@@ -366,6 +367,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq (~> 6.1, >= 6.1.2)
+  sidekiq-cron (~> 1.1)
   turbolinks (~> 5)
   web-console (>= 4.1.0)
   webdrivers
