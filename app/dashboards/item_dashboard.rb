@@ -15,9 +15,21 @@ class ItemDashboard < Administrate::BaseDashboard
     # detail: Field::ActiveStorage,
     # url: Field::ActiveStorage,
 
-    cover: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
-    detail: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
-    url: Field::ActiveStorage.with_options(index_display_preview: false, direct_upload: true),
+    cover: Field::ActiveStorage.with_options(
+          index_display_preview: false, 
+          direct_upload: true,
+          show_preview_size:  [200, 200]
+        ),
+    detail: Field::ActiveStorage.with_options(
+          index_display_preview: false, 
+          direct_upload: true,
+          show_preview_size:  [200, 200]
+        ),
+    url: Field::ActiveStorage.with_options(
+          index_display_preview: false, 
+          direct_upload: true,
+          show_preview_size:  [200, 200]
+        ),
     author: Field::String,
     featured: Field::Boolean,
     draft: Field::Boolean,

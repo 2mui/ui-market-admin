@@ -31,6 +31,7 @@ class UserDashboard < Administrate::BaseDashboard
     name: Field::String,
     last_login_at: Field::DateTime,
     last_login_location: Field::String,
+    auth_providers: Field::HasMany
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -72,6 +73,7 @@ class UserDashboard < Administrate::BaseDashboard
     name
     last_login_at
     last_login_location
+    auth_providers
   ].freeze
 
   # FORM_ATTRIBUTES

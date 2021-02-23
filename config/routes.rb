@@ -2,6 +2,8 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
+  # default_url_options :host => "localhost:5000"
+
   # devise_for :users
   devise_for :users, path: '', 
               path_names:  { sign_in: :login, sign_out: :logout, sign_up: :register },
@@ -43,6 +45,7 @@ Rails.application.routes.draw do
     resources :industries
     resources :items
     resources :users
+    resources :auth_providers
     resources :browse_histories
     resources :download_histories
     resources :likes

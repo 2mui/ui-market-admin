@@ -9,6 +9,13 @@ module Admin
     before_action :authenticate_user!
     before_action :authenticate_admin
 
+    # def default_url_options
+    #   {
+    #     :locale => I18n.locale,
+    #     :host => "localhost"
+    #   }
+    # end
+
     def authenticate_admin
       # TODO Add authentication logic here.
       redirect_to '/', alert: 'Not authorized.' unless current_user && access_whitelist

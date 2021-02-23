@@ -21,6 +21,7 @@
       link: 友情链接
       partner: 合作伙伴
       filetype: 资源格式
+      auth_provider: 授权方式
     attributes:
       browse_history:
         <<: *commons
@@ -30,6 +31,11 @@
         <<: *commons
         user: 用户
         item: 资源
+      auth_provider:
+        <<: *commons
+        user: 用户
+        provider: 提供商
+        uid: 唯一ID
       like:
         <<: *commons
         user: 用户
