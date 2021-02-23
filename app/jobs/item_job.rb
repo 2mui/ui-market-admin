@@ -21,7 +21,7 @@ class ItemJob < ApplicationJob
     end
 
     if item.url.attached?
-      ext_lists = [".sketch", ".xd", ".psd", ".ai", ".zip", ".7z", ".rar"]
+      ext_lists = [".sketch", ".xd", ".psd", ".ai", ".eps"]
 
       # 如果是上传的是上述文件后缀的文件 那么就调用oss api设置object的HTTP HEADER
       if ext_lists.include? item.url.blob.filename.extension_with_delimiter
@@ -41,6 +41,3 @@ class ItemJob < ApplicationJob
     bucket.put_object(blob.key, headers: {'Content-Disposition' => "attachment; filename=#{blob.filename.to_s}"})
   end
 end
-
-
-
