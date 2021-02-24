@@ -41,6 +41,8 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'pry-rails'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
@@ -92,3 +94,6 @@ gem "pundit"
 #   gem 'rspec-rails'
 #   gem 'rswag-specs'
 # end
+
+gem 'airbrake'
+gem 'skylight'
