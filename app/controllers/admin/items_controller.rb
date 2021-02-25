@@ -55,8 +55,7 @@ module Admin
 
     def create
       resource = resource_class.new(resource_params)
-      p "###"
-      p current_user.id
+
       # set upload_by field
       resource.upload_by = current_user.id
 
@@ -70,6 +69,19 @@ module Admin
       else
         render :new, locals: {
           page: Administrate::Page::Form.new(dashboard, resource),
+        }
+      end
+    end
+
+    def update
+      if requested_resource.update(resource_params)
+        redirect_to(
+          [namespace, requested_resource.class],
+          notice: translate_with_resource("update.success"),
+        )
+      else
+        render :edit, locals: {
+          page: Administrate::Page::Form.new(dashboard, requested_resource),
         }
       end
     end
