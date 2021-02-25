@@ -101,3 +101,7 @@ end
 gem 'airbrake'
 gem 'skylight'
 gem 'pghero'
+
+group :development do
+  gem 'brakeman'
+end
