@@ -26,7 +26,6 @@ class PartnerDashboard < Administrate::BaseDashboard
     id
     name
     url
-    image
     position
   ].freeze
 
