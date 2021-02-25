@@ -99,4 +99,5 @@ group :development, :test do
 end
 
 gem 'airbrake'
-# gem 'skylight'
+gem 'skylight'
+gem 'pghero'

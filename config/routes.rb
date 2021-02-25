@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :download_histories
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
+    mount PgHero::Engine, at: 'pghero'
   end
 
   # authenticate :admin_user, lambda { |u| u.class.name == "AdminUser" } do
