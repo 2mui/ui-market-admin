@@ -1,4 +1,12 @@
 <div class="max-w-lg mx-auto mt-16 text-center">
+<% if current_user.editor? %>
+  <p>welcome, <%= current_user.email %>,  your role is <%= current_user.role %></p>
+<% else %>
+  <p>welcome, <%= current_user.email %>,  your role is <%= current_user.role %></p>
+<% end%>
+<div>
+
+<div class="max-w-lg mx-auto mt-16 text-center">
   <h1 class="mb-4 text-3xl font-black text-blue-600">
     <a href="/admin">Go to Admin Panel</a>
   </h1>
@@ -8,6 +16,10 @@
   </h1>
 
   <h1 class="mb-4 text-3xl font-black text-blue-600">
-    <a href="https://www.2mui.cn" target="_blank">frontend</a>
+    <a href="/pghero" target="_blank">PgHero</a>
+  </h1>
+
+  <h1 class="mb-4 text-3xl font-black text-blue-600">
+    <a href="https://www.2mui.cn" target="_blank">Frontend</a>
   </h1>
 </div>
