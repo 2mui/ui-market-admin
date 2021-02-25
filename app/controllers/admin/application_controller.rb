@@ -6,8 +6,11 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
+    include Administrate::Punditize
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
     before_action :authenticate_user!
-    before_action :authenticate_admin
+    before_action :authenticate_admins
 
     # def default_url_options
     #   {
@@ -16,15 +19,21 @@ module Admin
     #   }
     # end
 
-    def authenticate_admin
+    def authenticate_admins
       # TODO Add authentication logic here.
       redirect_to '/', alert: 'Not authorized.' unless current_user && access_whitelist
     end
 
     private
+      # only allow role: [:admin, :editor] can login
       def access_whitelist
-        current_user.try(:admin?) || current_user.try(:door_super?)
+        current_user.try(:admin?) || current_user.try(:editor?) || current_user.try(:door_super?)
       end
+
+    def user_not_authorized
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
+    end
 
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.

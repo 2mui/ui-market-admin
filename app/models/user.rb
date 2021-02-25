@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_person_name
-  has_many :auth_providers
+  extend Enumerize
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -14,4 +14,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   has_many :auth_providers, dependent: :destroy
+
+
+  enumerize :role, in: [:user, :editor, :admin], default: :user, scope: true, predicates: true
+  enumerize :gender, in: [:male, :female], skip_validations: true
 end

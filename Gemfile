@@ -41,8 +41,9 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'pry-rails'
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # gem 'spring'
 end
 
 group :test do
@@ -82,6 +83,7 @@ gem 'image_processing'
 # gem 'activestorage-tencent_cos'
 # gem 'activestorage-tencent_cos', github: 'df1228/activestorage-tencent_cos'
 
+gem 'enumerize'
 gem "pundit"
 
 # gem 'multi_json'
@@ -90,10 +92,11 @@ gem "pundit"
 # gem 'rswag-api'
 # gem 'rswag-ui'
 
-# group :development, :test do
-#   gem 'rspec-rails'
-#   gem 'rswag-specs'
-# end
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'guard-rspec', require: false
+  # gem 'rswag-specs'
+end
 
 gem 'airbrake'
-gem 'skylight'
+# gem 'skylight'

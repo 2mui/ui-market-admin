@@ -51,7 +51,11 @@ class ItemDashboard < Administrate::BaseDashboard
     #     ["3D", 7]
     # ]),
     category_id: Field::Select.with_options(collection: -> { Category.options_for_select }),
+    category: Field::BelongsTo,
     industry_id: Field::Select.with_options(collection: -> { Industry.options_for_select }),
+    industry: Field::BelongsTo,
+    # upload_by: Field::BelongsTo.with_options(:class_name => "User", :foreign_key => "upload_by")
+    upload_by: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -62,6 +66,7 @@ class ItemDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     title
+    featured
     draft
     created_at
   ].freeze
@@ -79,9 +84,12 @@ class ItemDashboard < Administrate::BaseDashboard
     filesize
     filetype
     category_id
+    category
     industry_id
+    industry
     featured
     draft
+    upload_by
     created_at
     updated_at
   ].freeze

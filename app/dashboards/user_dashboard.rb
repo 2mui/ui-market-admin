@@ -16,7 +16,8 @@ class UserDashboard < Administrate::BaseDashboard
     remember_created_at: Field::DateTime,
     first_name: Field::String,
     last_name: Field::String,
-    admin: Field::Boolean,
+    password: Field::Password,
+    role: Field::Select.with_options(collection: [["普通用户", :user], ["编辑", :editor], ["管理员", :admin]]),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     login: Field::String,
@@ -42,9 +43,7 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     email
-    login
-    admin
-    last_login_at
+    role
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -58,7 +57,6 @@ class UserDashboard < Administrate::BaseDashboard
     remember_created_at
     first_name
     last_name
-    admin
     created_at
     updated_at
     login
@@ -81,13 +79,10 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     email
-    encrypted_password
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
+    password
+    role
     first_name
     last_name
-    admin
     login
     qq
     mobile_phone
@@ -98,8 +93,6 @@ class UserDashboard < Administrate::BaseDashboard
     city
     cid
     name
-    last_login_at
-    last_login_location
   ].freeze
 
   # COLLECTION_FILTERS

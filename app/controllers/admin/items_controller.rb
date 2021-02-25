@@ -53,13 +53,34 @@ module Admin
     #     transform_values { |v| read_param_value(v) }
     # end
 
-  def default_sorting_attribute
-    :updated_at
-  end
+    def create
+      resource = resource_class.new(resource_params)
+      p "###"
+      p current_user.id
+      # set upload_by field
+      resource.upload_by = current_user.id
 
-  def default_sorting_direction
-    :desc
-  end
+      authorize_resource(resource)
+
+      if resource.save
+        redirect_to(
+          [namespace, resource],
+          notice: translate_with_resource("create.success"),
+        )
+      else
+        render :new, locals: {
+          page: Administrate::Page::Form.new(dashboard, resource),
+        }
+      end
+    end
+
+    def default_sorting_attribute
+      :updated_at
+    end
+
+    def default_sorting_direction
+      :desc
+    end
 
     # https://api.rubyonrails.org/v4.1.8/classes/ActionController/Parameters.html
     # 必须要 permit(filetype: []).

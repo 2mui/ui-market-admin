@@ -40,6 +40,9 @@
         <<: *commons
         user: 用户
         item: 资源
+      user:
+        <<: *commons
+        role: 角色
       link:
         <<: *commons
       partner:

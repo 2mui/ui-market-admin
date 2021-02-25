@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create({ email: "admin@2mui.cn", password: "password", admin: true})
-User.create({ email: "user1@2mui.cn", password: "password", admin: true})
-User.create({ email: "user2@2mui.cn", password: "password", admin: true})
-User.create({ email: "user3@2mui.cn", password: "password", admin: true})
+User.create({ email: "admin@2mui.cn", password: "password", role: :admin})
+User.create({ email: "user1@2mui.cn", password: "password", role: :editor})
+User.create({ email: "user2@2mui.cn", password: "password", role: :editor})
+User.create({ email: "user3@2mui.cn", password: "password", role: :editor})
 
 %w[教育 科技 医药 电商 社交 影音 食品 交通 美妆 其它].each do |x|
   Industry.create({
@@ -28,31 +28,31 @@ end
   })
 end
 
-require 'uri'
+# require 'uri'
 
-# item.cover.service_url
-# https://blog.eq8.eu/til/upload-remote-file-from-url-with-activestorage-rails.html
+# # item.cover.service_url
+# # https://blog.eq8.eu/til/upload-remote-file-from-url-with-activestorage-rails.html
 
-# if Item.count == 0
-  path = File.join(File.dirname(__FILE__), "./seeds/items.json")
-  records = JSON.parse(File.read(path))
-  items = records["items"]
-  items.each do |record|
-    puts record
-    cover = record.delete("cover")
-    detail = record.delete("detail")
-    url = record.delete("url")
+# # if Item.count == 0
+#   path = File.join(File.dirname(__FILE__), "./seeds/items.json")
+#   records = JSON.parse(File.read(path))
+#   items = records["items"]
+#   items.each do |record|
+#     puts record
+#     cover = record.delete("cover")
+#     detail = record.delete("detail")
+#     url = record.delete("url")
 
-    item = Item.new(record)
-    item.cover.attach(io: URI.open(cover), filename: 'cover.jpg', content_type: 'image/jpg')
-    item.detail.attach(io: URI.open(detail), filename: 'detail.jpg', content_type: 'image/jpg')
-    item.url.attach(io: URI.open(url), filename: 'download.zip', content_type: 'application/zip')
+#     item = Item.new(record)
+#     item.cover.attach(io: URI.open(cover), filename: 'cover.jpg', content_type: 'image/jpg')
+#     item.detail.attach(io: URI.open(detail), filename: 'detail.jpg', content_type: 'image/jpg')
+#     item.url.attach(io: URI.open(url), filename: 'download.zip', content_type: 'application/zip')
 
-    item.save!
-    # Item.create!(record)
-  end
-  puts "items are seeded ......"
-# end
+#     item.save!
+#     # Item.create!(record)
+#   end
+#   puts "items are seeded ......"
+# # end
 
 
 # Item.create({

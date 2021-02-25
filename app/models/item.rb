@@ -7,6 +7,10 @@ class Item < ApplicationRecord
   after_commit :update_real_url_and_filesize, on: :create
   after_commit :update_real_url_and_filesize, on: :update
 
+  belongs_to :category
+  belongs_to :industry
+  belongs_to :user, class_name: "User", foreign_key: "upload_by"
+
   # TODO: improve to sidekiq job
   # number_to_human_size
   # because cover(has_one_attached) is activestorage field and it's an object and nil in column
@@ -15,4 +19,13 @@ class Item < ApplicationRecord
   def update_real_url_and_filesize
     ItemJob.perform_later id
   end
+
+  def published?
+    !draft
+  end
+
+  def featured?
+    featured
+  end
+
 end
