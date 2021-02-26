@@ -14,6 +14,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   has_many :auth_providers, dependent: :destroy
+  has_many :browse_histories, dependent: :destroy
+  has_many :download_histories, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
 
   enumerize :role, in: [:user, :editor, :admin], default: :user, scope: true, predicates: true

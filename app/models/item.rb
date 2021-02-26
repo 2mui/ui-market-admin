@@ -7,6 +7,10 @@ class Item < ApplicationRecord
   after_commit :update_real_url_and_filesize, on: :create
   after_commit :update_real_url_and_filesize, on: :update
 
+  has_many :browse_histories, dependent: :destroy
+  has_many :download_histories, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
   belongs_to :category
   belongs_to :industry
   belongs_to :user, class_name: "User", foreign_key: "upload_by"
