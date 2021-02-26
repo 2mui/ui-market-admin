@@ -25,7 +25,6 @@ class PartnerDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
-    url
     position
   ].freeze
 
