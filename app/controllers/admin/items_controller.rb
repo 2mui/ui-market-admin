@@ -73,19 +73,6 @@ module Admin
       end
     end
 
-    def update
-      if requested_resource.update(resource_params)
-        redirect_to(
-          [namespace, requested_resource.class],
-          notice: translate_with_resource("update.success"),
-        )
-      else
-        render :edit, locals: {
-          page: Administrate::Page::Form.new(dashboard, requested_resource),
-        }
-      end
-    end
-
     def default_sorting_attribute
       :updated_at
     end

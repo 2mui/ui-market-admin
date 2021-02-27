@@ -19,6 +19,20 @@ module Admin
     #   }
     # end
 
+    # redirect to index after update
+    def update
+      if requested_resource.update(resource_params)
+        redirect_to(
+          [namespace, requested_resource.class],
+          notice: translate_with_resource("update.success"),
+        )
+      else
+        render :edit, locals: {
+          page: Administrate::Page::Form.new(dashboard, requested_resource),
+        }
+      end
+    end
+
     def authenticate_admins
       # TODO Add authentication logic here.
       redirect_to '/', alert: 'Not authorized.' unless current_user && access_whitelist
