@@ -18,17 +18,17 @@ class ItemDashboard < Administrate::BaseDashboard
     cover: Field::ActiveStorage.with_options(
           index_display_preview: false, 
           direct_upload: true,
-          show_preview_size:  [200, 200]
+          show_preview_size:  [404, 303]
         ),
     detail: Field::ActiveStorage.with_options(
           index_display_preview: false, 
           direct_upload: true,
-          show_preview_size:  [200, 200]
+          show_preview_size:  [404, 1000]
         ),
     url: Field::ActiveStorage.with_options(
           index_display_preview: false, 
           direct_upload: true,
-          show_preview_size:  [200, 200]
+          show_display_preview: false,
         ),
     author: Field::String,
     featured: Field::Boolean,
