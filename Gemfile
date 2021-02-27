@@ -105,3 +105,5 @@ gem 'pghero'
 group :development do
   gem 'brakeman'
 end
+
+gem 'discard', '~> 1.2'

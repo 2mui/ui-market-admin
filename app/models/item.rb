@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  include Discard::Model
+  default_scope -> { kept }
+
   has_one_attached :cover
   has_one_attached :detail
   has_one_attached :url
