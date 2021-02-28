@@ -21,8 +21,13 @@
       link: 友情链接
       partner: 合作伙伴
       filetype: 资源格式
+      banner: 轮播图
       auth_provider: 授权方式
     attributes:
+      banner:
+        <<: *commons
+        image: 图片
+        alt: 文字
       browse_history:
         <<: *commons
         user: 用户
