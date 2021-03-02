@@ -16,7 +16,6 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y build-essen
   libfftw3-dev libmagickwand-dev libopenexr-dev liborc-0.4-0 gobject-introspection \
   libgsf-1-dev libglib2.0-dev liborc-0.4-dev automake libtool swig gtk-doc-tools \
   libgtk2.0-dev flex bison && \
-
   cd /tmp && \
   curl -OL https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.gz && \
   tar zvxf vips-$LIBVIPS_VERSION.tar.gz && \
@@ -25,7 +24,6 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y build-essen
   make && \
   make install && \
   ldconfig && \
-
   apt-get remove -y curl automake build-essential && \
   apt-get autoremove -y && \
   apt-get autoclean && \
