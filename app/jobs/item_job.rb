@@ -16,10 +16,16 @@ class ItemJob < ApplicationJob
     ActiveStorage::Current.set(host: url) do
       if item.cover.attached? && item.cover.image?
         item.update_column(:cover, item.cover.variant(resize_to_limit: [404,303]).processed.url) 
+      else
+        item.update_column(:cover, item.cover.url)
       end
-      if item.detail.attached? && item.cover.image?
+
+      if item.detail.attached? && item.detail.image?
         item.update_column(:detail, item.detail.variant(resize_to_limit: [1292, nil]).processed.url)
+      else
+        item.update_column(:detail, item.detail.url)
       end
+
       item.update_column(:url, item.url.url) if item.url.attached?
       item.update_column(:filesize, item.url.byte_size) if item.url.attached?
     end
