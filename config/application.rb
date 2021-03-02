@@ -18,7 +18,7 @@ module UiMarketAdmin
     # https://github.com/svenfuchs/rails-i18n/blob/master/rails/rails5/active_record.yml
     config.i18n.default_locale = :'zh-CN'
 
-    config.active_storage.variant_processor = :vips
+    # config.active_storage.variant_processor = :vips
 
     # Configuration for the application, engines, and railties goes here.
     #
