@@ -52,5 +52,7 @@ ENV SECRET_KEY_BASE=818eab1662e8d33cfe4a2c55016e836ff1da6613b215e4ad30935fa3dc55
 
 ADD . $APP_HOME
 # RUN RAILS_ENV=production bundle exec rails db:setup
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+
+# https://github.com/rails/rails/issues/32947
+RUN SECRET_KEY_BASE=1 RAILS_ENV=production bundle exec rake assets:precompile
 CMD ["rails","server","-b","0.0.0.0", "-e", "production"]
