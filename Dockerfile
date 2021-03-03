@@ -40,7 +40,7 @@ RUN yarn install
 # RUN gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ && gem install bundler:2.2.6
 RUN gem install bundler:2.2.11 && bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 ADD Gemfile* $APP_HOME/
-RUN bundle install
+RUN bundle install --without development test
 
 ADD package.json yarn.lock  $APP_HOME/
 RUN yarn install --check-files
