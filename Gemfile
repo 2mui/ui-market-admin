@@ -39,12 +39,13 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
   # gem 'spring'
 end
+
+gem 'listen', '~> 3.3'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
