@@ -53,6 +53,28 @@ module Admin
     #     transform_values { |v| read_param_value(v) }
     # end
 
+    def toggle_featured
+      puts 'toggle_featured'
+      requested_resource.featured = !requested_resource.featured
+      if requested_resource.save
+        redirect_to(
+          [namespace, requested_resource.class],
+          notice: translate_with_resource("update.success"),
+        )
+      end
+    end
+
+    def toggle_draft
+      puts 'toggle_draft'
+      requested_resource.draft = !requested_resource.draft
+      if requested_resource.save
+        redirect_to(
+          [namespace, requested_resource.class],
+          notice: translate_with_resource("update.success"),
+        )
+      end
+    end
+
     def create
       resource = resource_class.new(resource_params)
 

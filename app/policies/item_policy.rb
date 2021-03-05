@@ -34,4 +34,11 @@ class ItemPolicy < ApplicationPolicy
     true
   end
 
+  def toggle_featured?
+    true
+  end
+
+  def toggle_draft?
+    true
+  end
 end

@@ -74,7 +74,25 @@ to display a collection of resources in an HTML table.
           </td>
         <% end %>
 
-        <% if valid_action? :edit, collection_presenter.resource_name %>
+         <% if valid_action? :toggle_featured, collection_presenter.resource_name %>
+          <td><%= link_to(
+            t("administrate.actions.toggle_featured"),
+            [:toggle_featured, namespace, resource],
+            method: :patch,
+            data: { confirm: t("administrate.actions.confirm") }
+          ) %></td>
+        <% end %>
+
+        <% if valid_action? :toggle_draft, collection_presenter.resource_name %>
+          <td><%= link_to(
+            t("administrate.actions.toggle_draft"),
+            [:toggle_draft, namespace, resource],
+            method: :patch,
+            data: { confirm: t("administrate.actions.confirm") }
+          ) %></td>
+        <% end %>
+
+         <% if valid_action? :edit, collection_presenter.resource_name %>
           <td><%= link_to(
             t("administrate.actions.edit"),
             [:edit, namespace, resource],

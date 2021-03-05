@@ -44,7 +44,10 @@ Rails.application.routes.draw do
     resources :categories
     resources :filetypes
     resources :industries
-    resources :items
+    resources :items do
+      patch "toggle_featured", on: :member
+      patch "toggle_draft", on: :member
+    end
     resources :users
     resources :auth_providers
     resources :browse_histories
