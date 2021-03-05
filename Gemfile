@@ -73,6 +73,8 @@ gem 'activestorage-aliyun'
 
 # https://dreamersoul.github.io/administrate-field-active_storage/
 gem 'administrate-field-active_storage'
+gem 'administrate-field-boolean_emoji', '~> 0.2.1'
+
 # gem 'administrate-field-jsonb', github: 'codica2/administrate-field-jsonb'
 # gem 'administrate-field-jsonb', github: 'kayhide/administrate-field-jsonb'
 # gem 'administrate-field-tag', github: 'herregroen/administrate-field-tag'

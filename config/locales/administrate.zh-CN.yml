@@ -20,7 +20,10 @@ zh-CN:
       has_many:
         more: 显示所有 %{total_count} 中 %{count} 条
         none: 无
-    form:
+      boolean_emoji:
+        'false': 👎
+        'true': 👍
+      form:
       error: 错误
       errors: "%{resource_name} 保存前出现了 %{pluralized_errors} 个错误："
     navigation:
