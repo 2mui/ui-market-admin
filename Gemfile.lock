@@ -365,6 +365,8 @@ GEM
     sidekiq-cron (1.2.0)
       fugit (~> 1.1)
       sidekiq (>= 4.2.1)
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
     skylight (4.3.2)
       skylight-core (= 4.3.2)
     skylight-core (4.3.2)
@@ -448,6 +450,7 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq (~> 6.1, >= 6.1.2)
   sidekiq-cron (~> 1.1)
+  sidekiq-failures
   skylight
   turbolinks (~> 5)
   web-console (>= 4.1.0)
