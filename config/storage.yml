@@ -12,7 +12,8 @@ aliyun:
   access_key_id: <%= ENV["ALIYUN_ACCESS_KEY_ID"] %>
   access_key_secret: <%= ENV["ALIYUN_ACCESS_KEY_SECRET"] %>
   bucket: "ui-market"
-  endpoint: "https://oss-cn-shenzhen.aliyuncs.com"
+  # endpoint: "https://oss-cn-shenzhen.aliyuncs.com"
+  endpoint: "https://assets.2mui.cn"
   # path prefix, default: /
   path: "/"
   # Bucket public: true/false, default: true, for generate public/private URL.
