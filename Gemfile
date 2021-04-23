@@ -45,6 +45,8 @@ group :development do
   # gem 'spring'
 end
 
+gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
+
 gem 'listen', '~> 3.3'
 
 group :test do
