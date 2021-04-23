@@ -54,7 +54,9 @@ Rails.application.routes.draw do
     resources :download_histories
     resources :likes
     resources :banners
-
+    
+    resources :resource_categories
+    resources :resource_items
     root to: "items#index"
   end
 end

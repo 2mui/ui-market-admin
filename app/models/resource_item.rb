@@ -1,0 +1,2 @@
+class ResourceItem < ApplicationRecord
+end
