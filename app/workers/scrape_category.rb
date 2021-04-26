@@ -21,7 +21,7 @@ class ScrapeCategory
         param.type = "category"
         param.url  = category.link_to_extract
 
-        req = InvokeRequest.new("fdr", "RequestResponse", "$LATEST", param.to_json)
+        req = InvokeRequest.new("fdr", "RequestResponse", "$LATEST", param.to_h.to_json)
         resp = cli.Invoke(req)
         puts resp.serialize
       rescue TencentCloudSDKException => e
