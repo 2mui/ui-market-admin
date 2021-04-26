@@ -92,7 +92,7 @@ gem 'image_processing'
 # gem 'activestorage-tencent_cos', github: 'df1228/activestorage-tencent_cos'
 
 gem 'enumerize'
-gem "pundit"
+gem 'pundit'
 
 # gem 'multi_json'
 
@@ -107,7 +107,7 @@ group :development, :test do
 end
 
 gem 'airbrake'
-gem 'skylight'
+# gem 'skylight'
 gem 'pghero'
 
 group :development do
@@ -115,3 +115,12 @@ group :development do
 end
 
 gem 'discard', '~> 1.2'
+
+# https://ruby-china.org/topics/41077
+# 0.3.5
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+
+
+# invoke scf function in sidekiq worker
+gem 'tencentcloud-sdk-common', git: 'https://github.com/TencentCloud/tencentcloud-sdk-ruby', glob: 'tencentcloud-sdk-common/*.gemspec'
+gem 'tencentcloud-sdk-scf', git: 'https://github.com/TencentCloud/tencentcloud-sdk-ruby', glob: 'tencentcloud-sdk-scf/*.gemspec'

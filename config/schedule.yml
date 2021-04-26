@@ -2,3 +2,13 @@ fix_item_urls_job:
   cron: "*/1 * * * *"
   class: "HardWorker"
   queue: hard_worker
+
+scrape_category:
+  cron: "*/1 * * * *"
+  class: "ScrapeCategory"
+  queue: hard_worker
+
+scrape_item:
+  cron: "*/1 * * * *"
+  class: "ScrapeItem"
+  queue: hard_worker
