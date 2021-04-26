@@ -119,3 +119,32 @@ end
 #   category_id: 1,
 #   industry_id: 1
 # })
+
+ui_kits = %w(
+  https://freedesignresources.net/category/free-ui-kits/?_license=464b77fd69c17b1b24c17b193143ce32
+  https://freedesignresources.net/category/free-ui-kits/?_license=464b77fd69c17b1b24c17b193143ce32?_paged=2
+  https://freedesignresources.net/category/free-ui-kits/?_license=464b77fd69c17b1b24c17b193143ce32?_paged=3
+  https://freedesignresources.net/category/free-ui-kits/?_license=464b77fd69c17b1b24c17b193143ce32?_paged=4
+)
+
+icons = %w(
+  https://freedesignresources.net/category/free-graphics/free-icons/?_license=464b77fd69c17b1b24c17b193143ce32
+  https://freedesignresources.net/category/free-graphics/free-icons/?_license=464b77fd69c17b1b24c17b193143ce32&_paged=2
+  https://freedesignresources.net/category/free-graphics/free-icons/?_license=464b77fd69c17b1b24c17b193143ce32&_paged=3
+)
+
+
+ui_kits.each do |k|
+  ResourceCategory.create(
+    category_name: "UI_KITS",
+    link_to_extract: k
+  )
+end
+
+
+icons.each do |k|
+  ResourceCategory.create(
+    category_name: "icons",
+    link_to_extract: k
+  )
+end
