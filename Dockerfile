@@ -1,37 +1,38 @@
-FROM ruby:3.0.0 AS builder
+# FROM ruby:3.0.0 AS builder
 
-# Build libvps
-# https://github.com/CompanyCam/ruby-vips-docker/blob/master/Dockerfile
-ENV LIBVIPS_VERSION_MAJOR 8
-ENV LIBVIPS_VERSION_MINOR 10
-ENV LIBVIPS_VERSION_PATCH 5
-ENV LIBVIPS_VERSION $LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR.$LIBVIPS_VERSION_PATCH
+# # Build libvps
+# # https://github.com/CompanyCam/ruby-vips-docker/blob/master/Dockerfile
+# ENV LIBVIPS_VERSION_MAJOR 8
+# ENV LIBVIPS_VERSION_MINOR 10
+# ENV LIBVIPS_VERSION_PATCH 5
+# ENV LIBVIPS_VERSION $LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR.$LIBVIPS_VERSION_PATCH
 
-RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+# RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
+# RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+# RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-RUN apt-get update -qq && apt-get install --no-install-recommends -y build-essential git libpq-dev nodejs yarn \
-  ca-certificates imagemagick apt-utils libxml2-dev \
-  libfftw3-dev libmagickwand-dev libopenexr-dev liborc-0.4-0 gobject-introspection \
-  libgsf-1-dev libglib2.0-dev liborc-0.4-dev automake libtool swig gtk-doc-tools \
-  libgtk2.0-dev flex bison && \
-  cd /tmp && \
-  curl -OL https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.gz && \
-  tar zvxf vips-$LIBVIPS_VERSION.tar.gz && \
-  cd /tmp/vips-$LIBVIPS_VERSION && \
-  ./configure --enable-debug=no --without-python $1 && \
-  make && \
-  make install && \
-  ldconfig && \
-  apt-get remove -y curl automake build-essential && \
-  apt-get autoremove -y && \
-  apt-get autoclean && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# RUN apt-get update -qq && apt-get install --no-install-recommends -y build-essential git libpq-dev nodejs yarn \
+#   ca-certificates imagemagick apt-utils libxml2-dev \
+#   libfftw3-dev libmagickwand-dev libopenexr-dev liborc-0.4-0 gobject-introspection \
+#   libgsf-1-dev libglib2.0-dev liborc-0.4-dev automake libtool swig gtk-doc-tools \
+#   libgtk2.0-dev flex bison && \
+#   cd /tmp && \
+#   curl -OL https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.gz && \
+#   tar zvxf vips-$LIBVIPS_VERSION.tar.gz && \
+#   cd /tmp/vips-$LIBVIPS_VERSION && \
+#   ./configure --enable-debug=no --without-python $1 && \
+#   make && \
+#   make install && \
+#   ldconfig && \
+#   apt-get remove -y curl automake build-essential && \
+#   apt-get autoremove -y && \
+#   apt-get autoclean && \
+#   apt-get clean && \
+#   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-FROM builder
+# FROM builder
+FROM dfang/ruby-vips:latest
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
