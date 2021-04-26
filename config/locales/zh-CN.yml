@@ -11,8 +11,21 @@
     position: 排序
   activerecord:
     models:
+      item: '资源'
+      browse_history: 浏览记录
+      download_history: 下载记录
+      like: 收藏记录
       user: 用户
+      category: 资源分类
+      industry: 行业
+      link: 友情链接
+      partner: 合作伙伴
+      filetype: 资源格式
+      banner: 轮播图
+      auth_provider: 授权方式
       employer: 雇主
+      resource_category: 待爬取列表
+      resource_item: 待爬取资源
     attributes:
       banner:
         <<: *commons
