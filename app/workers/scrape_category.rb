@@ -11,8 +11,8 @@ class ScrapeCategory
   include Sidekiq::Worker
   
   def perform(*args)
-    categories = ResourceCategory.all.first
-    for cate in categories do
+    category = ResourceCategory.all.first
+    if category.present?
       begin
         cre = Credential.new(ENV['TENCENT_CLOUD_APP_KEY'], ENV['TENCENT_CLOUD_APP_SECRET'])
         cli = Client.new(cre, 'ap-singapore')
@@ -30,7 +30,7 @@ class ScrapeCategory
         puts e.backtrace.inspect  
       end
   
-      logger.info "Scraping resource categories ......"
+      logger.info "Scraping resource items links from one category ......"
     end
   end
 end
