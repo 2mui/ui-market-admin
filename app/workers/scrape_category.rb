@@ -19,8 +19,7 @@ class ScrapeCategory
         
         param = OpenStruct.new
         param.type = "category"
-        param.url  = cate.link_to_extract
-
+        param.url  = category.link_to_extract
 
         req = InvokeRequest.new("fdr", "RequestResponse", "$LATEST", param.to_json)
         resp = cli.Invoke(req)
