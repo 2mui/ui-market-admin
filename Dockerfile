@@ -1,4 +1,4 @@
-FROM ruby:3.0.0
+FROM ruby:3.0.0 AS builder
 
 # Build libvps
 # https://github.com/CompanyCam/ruby-vips-docker/blob/master/Dockerfile
@@ -29,6 +29,9 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y build-essen
   apt-get autoclean && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+FROM builder
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
