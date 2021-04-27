@@ -11,7 +11,7 @@ class ScrapeItem
   include Sidekiq::Worker
   
   def perform
-    item = ResourceItem.where(scraped: nil).or(ResourceItem.where(scraped: false)).first
+    item = ResourceItem.where(scraped: false).first
     if item.present?
       begin
         cre = Credential.new(ENV['TENCENT_CLOUD_APP_KEY'], ENV['TENCENT_CLOUD_APP_SECRET'])
@@ -24,7 +24,9 @@ class ScrapeItem
         req = InvokeRequest.new("fdr", "RequestResponse", "$LATEST", param.to_h.to_json)
         resp = cli.Invoke(req)
         puts resp.serialize
-      
+
+        item.update!(scraped: true)
+
       rescue TencentCloudSDKException => e
         puts e.message  
         puts e.backtrace.inspect  

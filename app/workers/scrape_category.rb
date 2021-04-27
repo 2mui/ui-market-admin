@@ -11,7 +11,7 @@ class ScrapeCategory
   include Sidekiq::Worker
   
   def perform(*args)
-    category = ResourceCategory.all.first
+    category = ResourceCategory.order(Arel.sql('RANDOM()')).first
     if category.present?
       begin
         cre = Credential.new(ENV['TENCENT_CLOUD_APP_KEY'], ENV['TENCENT_CLOUD_APP_SECRET'])
