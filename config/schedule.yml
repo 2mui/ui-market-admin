@@ -4,7 +4,7 @@ fix_item_urls_job:
   queue: hard_worker
 
 scrape_category:
-  cron: "*/1 * * * *"
+  cron: "* * */1 * *"
   class: "ScrapeCategory"
   queue: hard_worker
 

@@ -24,6 +24,7 @@ class ScrapeCategory
         req = InvokeRequest.new("fdr", "RequestResponse", "$LATEST", param.to_h.to_json)
         resp = cli.Invoke(req)
         puts resp.serialize
+      
       rescue TencentCloudSDKException => e
         puts e.message  
         puts e.backtrace.inspect  
