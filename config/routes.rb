@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     
     resources :resource_categories
     resources :resource_items
+    resources :resource_details
     root to: "items#index"
   end
 end

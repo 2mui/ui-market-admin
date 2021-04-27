@@ -26,6 +26,7 @@
       employer: 雇主
       resource_category: 待爬取列表
       resource_item: 待爬取资源
+      resource_detail: 待插入到数据库
     attributes:
       banner:
         <<: *commons
