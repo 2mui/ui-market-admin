@@ -79,7 +79,7 @@ module Admin
       resource = resource_class.new(resource_params)
 
       # set upload_by field
-      resource.upload_by = current_user.id
+      resource.upload_by = current_user.id if current_user.present?
 
       authorize_resource(resource)
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_061658) do
+ActiveRecord::Schema.define(version: 2021_04_27_085644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,6 +178,22 @@ ActiveRecord::Schema.define(version: 2021_04_23_061658) do
   create_table "resource_categories", force: :cascade do |t|
     t.string "category_name"
     t.string "link_to_extract"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "resource_details", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "cover"
+    t.string "detail"
+    t.string "url"
+    t.integer "category_id"
+    t.integer "industry_id"
+    t.integer "upload_by"
+    t.boolean "featured", default: false
+    t.boolean "draft", default: true
+    t.boolean "processed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
