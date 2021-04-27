@@ -23,9 +23,13 @@ class ScrapeItem
         
         req = InvokeRequest.new("fdr", "RequestResponse", "$LATEST", param.to_h.to_json)
         resp = cli.Invoke(req)
+        
         puts resp.serialize
+        puts "RequestId: #{resp.RequestId}"
 
-        item.update!(scraped: true)
+        if resp.Result = 0 {
+          item.update!(scraped: true)
+        }
 
       rescue TencentCloudSDKException => e
         puts e.message  
