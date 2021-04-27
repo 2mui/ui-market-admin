@@ -27,9 +27,7 @@ class ScrapeItem
         puts resp.serialize
         puts "RequestId: #{resp.RequestId}"
 
-        if resp.Result = 0 {
-          item.update!(scraped: true)
-        }
+        item.update!(scraped: true) if resp.Result == 0
 
       rescue TencentCloudSDKException => e
         puts e.message  
