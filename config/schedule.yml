@@ -9,6 +9,11 @@ scrape_category:
   queue: hard_worker
 
 scrape_item:
-  cron: "*/1 * * * *"
+  cron: "* */1 * * *"
   class: "ScrapeItem"
+  queue: hard_worker
+
+process_item:
+  cron: "*/30 * * * *"
+  class: "ProcessItem"
   queue: hard_worker
