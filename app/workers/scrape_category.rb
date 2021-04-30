@@ -11,7 +11,8 @@ class ScrapeCategory
   include Sidekiq::Worker
   
   def perform(*args)
-    category = ResourceCategory.order(Arel.sql('RANDOM()')).first
+    # category = ResourceCategory.order(Arel.sql('RANDOM()')).first
+    category = ResourceCategory.order("updated_at ASC").first
     if category.present?
       begin
         cre = Credential.new(ENV['TENCENT_CLOUD_APP_KEY'], ENV['TENCENT_CLOUD_APP_SECRET'])
@@ -26,6 +27,8 @@ class ScrapeCategory
         puts resp.serialize
 
         puts "RequestId: #{resp.RequestId}"
+
+        category.touch if resp.Result == 0
 
       rescue TencentCloudSDKException => e
         puts e.message  

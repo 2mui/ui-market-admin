@@ -24,7 +24,7 @@ class ResourceCategoryDashboard < Administrate::BaseDashboard
     id
     category_name
     link_to_extract
-    created_at
+    updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
