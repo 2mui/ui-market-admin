@@ -15,9 +15,9 @@ class ProcessItem
         industry_id: Industry.where(name: "其他").first.try(:id)
       )
       item.save!
-      attach_from_remote(item, rd.cover)
-      attach_from_remote(item, rd.detail)
-      attach_from_remote(item, rd.url)
+      attach_from_remote(item, :cover, rd.cover)
+      attach_from_remote(item, :detail, rd.detail)
+      attach_from_remote(item, :url, rd.url)
     end
   end
 
