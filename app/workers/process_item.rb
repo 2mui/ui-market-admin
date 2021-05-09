@@ -24,7 +24,7 @@ class ProcessItem
   def attach_from_remote(obj, field, url)
     require 'open-uri'
     filename = File.basename(URI.parse(url).path)
-    file = URI.open(url)
+    file = URI.open("https://" + url)
     obj.send(field.to_sym).attach(io: file, filename: filename )
     # rd.cover.attach(io: file, filename: filename )
   end
