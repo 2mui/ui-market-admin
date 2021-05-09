@@ -5,7 +5,7 @@ class ProcessItem
     rd = ResourceDetail.where(processed: false).where("cover != '' AND detail != '' AND url != ''").first
     if rd.present?
       puts rd
-      item = ResourceDetail.new(
+      item = Item.new(
         title: rd.title, 
         description: rd.description, 
         draft: true, 
