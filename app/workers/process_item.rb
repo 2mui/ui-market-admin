@@ -18,6 +18,8 @@ class ProcessItem
       attach_from_remote(item, :cover, rd.cover)
       attach_from_remote(item, :detail, rd.detail)
       attach_from_remote(item, :url, rd.url)
+
+      rd.update(processed: true)
     end
   end
 
