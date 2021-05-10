@@ -11,7 +11,7 @@ class ScrapeItem
   include Sidekiq::Worker
   
   def perform
-    item = ResourceItem.where(scraped: false).first
+    item = ResourceItem.where(scraped: false).order("RANDOM()").first
     if item.present?
       begin
         cre = Credential.new(ENV['TENCENT_CLOUD_APP_KEY'], ENV['TENCENT_CLOUD_APP_SECRET'])
