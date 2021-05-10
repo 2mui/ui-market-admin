@@ -29,6 +29,14 @@ module Admin
     #   end
     # end
 
+    def default_sorting_attribute
+      :updated_at
+    end
+
+    def default_sorting_direction
+      :asc
+    end
+
     # Override `resource_params` if you want to transform the submitted
     # data before it's persisted. For example, the following would turn all
     # empty values into nil values. It uses other APIs such as `resource_class`
