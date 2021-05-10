@@ -30,11 +30,11 @@ module Admin
     # end
 
     def default_sorting_attribute
-      :updated_at
+      :created_at
     end
 
     def default_sorting_direction
-      :asc
+      :desc
     end
 
     # Override `resource_params` if you want to transform the submitted
