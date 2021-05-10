@@ -13,6 +13,7 @@ class ScrapeItem
   def perform
     item = ResourceItem.where(scraped: false).order("RANDOM()").first
     if item.present?
+      item.update!(scraped: true)
       begin
         cre = Credential.new(ENV['TENCENT_CLOUD_APP_KEY'], ENV['TENCENT_CLOUD_APP_SECRET'])
         cli = Client.new(cre, 'ap-singapore')
@@ -27,14 +28,10 @@ class ScrapeItem
         puts resp.serialize
         puts "RequestId: #{resp.RequestId}"
 
-        if resp.Result == 0
-          item.update!(scraped: true)
-          # ProcessItem.perform_async(item.id)
-        end
-
       rescue TencentCloudSDKException => e
-        puts e.message  
-        puts e.backtrace.inspect  
+        puts e.message
+        puts e.backtrace.inspect
+        item.update!(scraped: false)
       end
       
       logger.info "Scraping resource detail for an item ......"
