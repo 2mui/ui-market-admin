@@ -14,9 +14,10 @@ scrape_item:
   class: "ScrapeItem"
   queue: hard_worker
 
-process_item:
-  cron: "*/30 * * * *" # every 30 minutes
-  class: "ProcessItem"
-  queue: hard_worker
+# Perform in scrape_item
+# process_item:
+#   cron: "*/30 * * * *" # every 30 minutes
+#   class: "ProcessItem"
+#   queue: hard_worker
 
 
