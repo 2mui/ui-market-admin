@@ -29,7 +29,7 @@ class ScrapeItem
 
         if resp.Result == 0
           item.update!(scraped: true)
-          ProcessItem.perform(item.id)
+          ProcessItem.perform_async(item.id)
         end
 
       rescue TencentCloudSDKException => e
