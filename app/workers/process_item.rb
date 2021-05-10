@@ -1,9 +1,10 @@
 class ProcessItem
   include Sidekiq::Worker
   
-  def perform(id)
-    # rd = ResourceDetail.where(processed: false).where("cover != '' AND detail != '' AND url != ''").first
-    rd = ResourceDetail.where(id: id).first
+  def perform(*args)
+    puts "args: #{args}"
+    rd = ResourceDetail.where(processed: false).where("cover != '' AND detail != '' AND url != ''").first
+    # rd = ResourceDetail.where(id: id).first
     if rd.present?
       puts rd
       item = Item.new(
