@@ -18,6 +18,9 @@ class ResourceDetailDashboard < Administrate::BaseDashboard
     industry_id: Field::Number,
     upload_by: Field::Number,
     featured: Field::Boolean,
+    request_id: Field::String,
+    original_url: Field::String,
+    filetypes: Field::String,
     draft: Field::Boolean,
     processed: Field::Boolean,
     created_at: Field::DateTime,
@@ -50,6 +53,11 @@ class ResourceDetailDashboard < Administrate::BaseDashboard
     featured
     draft
     processed
+
+    filetypes
+    request_id
+    original_url
+
     created_at
     updated_at
   ].freeze

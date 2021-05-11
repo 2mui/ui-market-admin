@@ -12,6 +12,7 @@ class ResourceItemDashboard < Administrate::BaseDashboard
     title: Field::String,
     link: Field::String,
     scraped: Field::Boolean,
+    request_id: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -35,6 +36,7 @@ class ResourceItemDashboard < Administrate::BaseDashboard
     title
     link
     scraped
+    request_id
     created_at
     updated_at
   ].freeze
