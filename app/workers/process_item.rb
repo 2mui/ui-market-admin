@@ -21,6 +21,15 @@ class ProcessItem
       attach_from_remote(item, :detail, rd.detail)
       attach_from_remote(item, :url, rd.url)
 
+      if rd.filetypes.present?
+        filetypes = rd.filetypes.split(",").each do |x|
+          x.gsub!(".","")
+        end
+        filetypes.unshift("")
+        item.filetype = filetypes
+        item.save!
+      end
+
       rd.update(processed: true)
     end
   end
