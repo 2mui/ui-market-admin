@@ -16,7 +16,6 @@ class ProcessItem
         category_id: Category.where(name: "其他").first.try(:id), 
         industry_id: Industry.where(name: "其他").first.try(:id)
       )
-      item.save!
       attach_from_remote(item, :cover, rd.cover)
       attach_from_remote(item, :detail, rd.detail)
       attach_from_remote(item, :url, rd.url)
@@ -27,8 +26,11 @@ class ProcessItem
         end
         filetypes.unshift("")
         item.filetype = filetypes
-        item.save!
       end
+
+      item.save!
+
+      ItemJob.perform_later(item.id)
 
       rd.update(processed: true)
     end

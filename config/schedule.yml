@@ -1,9 +1,9 @@
 # https://crontab.guru/examples.html
 
-fix_item_urls_job:
-  cron: "*/1 * * * *"
-  class: "HardWorker"
-  queue: hard_worker
+# fix_item_urls_job:
+#   cron: "*/1 * * * *"
+#   class: "HardWorker"
+#   queue: hard_worker
 scrape_category:
   cron: "0 0 * * *" # every day
   class: "ScrapeCategory"
